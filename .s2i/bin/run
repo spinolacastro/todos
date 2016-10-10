@@ -1,0 +1,23 @@
+#!/bin/bash
+
+set -e
+
+# nss_wrapper:
+if [ -e "/opt/app-root/etc/generate_container_user" ]; then
+    source /opt/app-root/etc/generate_container_user
+fi
+
+# Runs the nodejs application server.
+run_meteor() {
+    export PORT=${PORT:-8080}
+
+    if [ -z "${ROOT_URL}" ]; then
+        export ROOT_URL="http://${OPENSHIFT_BUILD_NAME%-*}-${OPENSHIFT_BUILD_NAMESPACE}.getup.io:${PORT}/"
+        echo "Auto generated ROOT_URL=$ROOT_URL"
+    fi
+
+    cd bundle
+    exec node main.js
+}
+
+run_meteo
