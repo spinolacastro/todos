@@ -20,4 +20,4 @@ run_meteor() {
     exec meteor node main.js
 }
 
-run_meteo
+run_meteor
