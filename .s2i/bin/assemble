@@ -35,12 +35,12 @@ fi
 echo "---> Building your Meteor application in $APP_DIR"
 
 cd /tmp/src
-npm install --save bcrypt
-npm install -d --production
-npm build --directory "$APP_DIR" --server=http://127.0.0.1:8080 --architecture os.linux.x86_64 --server-only
+meteor npm install --save bcrypt
+meteor npm install -d --production
+meteor npm build --directory "$APP_DIR" --server=http://127.0.0.1:8080 --architecture os.linux.x86_64 --server-only
 
 cd $HOME/bundle/programs/server
-npm install -d --production
+meteor npm install -d --production
 
 rm -rf /tmp/src/
 

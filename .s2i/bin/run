@@ -17,7 +17,7 @@ run_meteor() {
     fi
 
     cd bundle
-    exec node main.js
+    exec meteor node main.js
 }
 
 run_meteo
